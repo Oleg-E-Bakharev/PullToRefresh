@@ -13,9 +13,8 @@ Simple use case:
 import SwiftUI
 import PullToRefresh
 
-public struct SimpleSample: View {
-    public init() {}
-    public var body: some View {
+struct SimpleSample: View {
+    var body: some View {
         List(0..<20) { row in
             Text("Item \(row)")
         }
@@ -54,11 +53,8 @@ struct ComplexSample: View {
     }
 }
 
-public struct ComplexSamplePreview: View {
-
-    public init() {}
-
-    public var body: some View {
+struct ComplexSamplePreview: View {
+    var body: some View {
         ComplexSample()
             .pullRefreshable { // An iOS 15 refreshable analog
                 print("custom refreshing...")
