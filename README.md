@@ -8,12 +8,37 @@ SPM Usage:
 ```swift
     dependencies: [.package(url: "https://github.com/Oleg-E-Bakharev/PullToRefresh", from: "1.0.0")]
 ```
-Use case:
+Simple use case:
 ```swift
 import SwiftUI
 import PullToRefresh
 
-struct PullToRefreshSample: View {
+public struct SimpleSample: View {
+    public init() {}
+    public var body: some View {
+        List(0..<20) { row in
+            Text("Item \(row)")
+        }
+        .pullRefreshable { // An iOS 15 refreshable analog
+            print("custom refreshing...")
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            print("done!")
+        }
+    }
+}
+
+#Preview {
+    SimpleSample()
+}
+```
+
+Comlex use case:
+```swift
+
+import SwiftUI
+import PullToRefresh
+
+struct ComplexSample: View {
     // An iOS 15 \.refresh analog
     @Environment(\.pullRefresh) private var refresh
 
@@ -29,21 +54,21 @@ struct PullToRefreshSample: View {
     }
 }
 
-public struct PullToRefreshSamplePreview: View {
+public struct ComplexSamplePreview: View {
 
     public init() {}
 
     public var body: some View {
-        PullToRefreshSample()
+        ComplexSample()
             .pullRefreshable { // An iOS 15 refreshable analog
                 print("custom refreshing...")
-                try? await Task.sleep(nanoseconds: 4_000_000_000)
+                try? await Task.sleep(nanoseconds: 2_000_000_000)
                 print("done!")
             }
     }
 }
 
 #Preview {
-    PullToRefreshSamplePreview()
+    ComplexSamplePreview()
 }
 ```
