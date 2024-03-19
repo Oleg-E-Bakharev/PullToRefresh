@@ -1,6 +1,5 @@
 # PullToRefresh
-SwiftUI PullToRefresh from iOS13
-Fully identically refreshable view modifier from iOS15
+SwiftUI PullToRefresh from iOS13. Fully identically refreshable view modifier from iOS15
 
 Xcode package dependancy:
     https://github.com/Oleg-E-Bakharev/PullToRefresh
