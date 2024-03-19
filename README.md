@@ -6,7 +6,7 @@ Xcode package dependancy:
 
 SPM Usage:
 ```swift
-    dependencies: [.package(url: "https://github.com/Oleg-E-Bakharev/PullToRefresh", branch: "main")]
+    dependencies: [.package(url: "https://github.com/Oleg-E-Bakharev/PullToRefresh", from: "1.0.0")]
 ```
 Use case:
 ```swift
